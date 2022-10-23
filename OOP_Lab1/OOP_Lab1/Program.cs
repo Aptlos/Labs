@@ -21,13 +21,12 @@ namespace OOP_Lab1
                 game.Play(andrey, nikita, rating, key);
             }
 
-            artem.OverAllInfo();
-            andrey.OverAllInfo();
-            nikita.OverAllInfo();
-            
-            Console.WriteLine();
-            Console.Write("Choose id of Artem's game which history you want to watch: ");
-            Console.WriteLine(artem.games.GetGame(Convert.ToInt32(Console.ReadLine())));
+            artem.GameStats();
+            artem.PlayerInfo();
+            andrey.GameStats();
+            andrey.PlayerInfo();
+            nikita.GameStats();
+            nikita.PlayerInfo();
         }
     }
 }

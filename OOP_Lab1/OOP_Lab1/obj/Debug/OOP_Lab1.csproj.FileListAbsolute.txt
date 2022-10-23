@@ -5,3 +5,10 @@ C:\Users\dikov\RiderProjects\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csproj.Suggest
 C:\Users\dikov\RiderProjects\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csproj.CoreCompileInputs.cache
 C:\Users\dikov\RiderProjects\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.exe
 C:\Users\dikov\RiderProjects\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.pdb
+C:\Users\dikov\Labs\OOP_Lab1\OOP_Lab1\bin\Debug\OOP_Lab1.exe
+C:\Users\dikov\Labs\OOP_Lab1\OOP_Lab1\bin\Debug\OOP_Lab1.pdb
+C:\Users\dikov\Labs\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csproj.AssemblyReference.cache
+C:\Users\dikov\Labs\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csproj.SuggestedBindingRedirects.cache
+C:\Users\dikov\Labs\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.csproj.CoreCompileInputs.cache
+C:\Users\dikov\Labs\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.exe
+C:\Users\dikov\Labs\OOP_Lab1\OOP_Lab1\obj\Debug\OOP_Lab1.pdb

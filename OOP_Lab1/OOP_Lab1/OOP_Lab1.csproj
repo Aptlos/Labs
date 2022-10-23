@@ -41,8 +41,9 @@
     <ItemGroup>
         <Compile Include="Game.cs" />
         <Compile Include="GameAccount.cs" />
+        <Compile Include="GameInfo.cs" />
         <Compile Include="GameList.cs" />
-        <Compile Include="GameResults.cs" />
+        <Compile Include="GameResult.cs" />
         <Compile Include="IncorrectBetException.cs" />
         <Compile Include="NoSuchKeyException.cs" />
         <Compile Include="Program.cs" />

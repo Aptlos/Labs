@@ -4,7 +4,15 @@
     <projectFile>OOP_Lab1/OOP_Lab1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b11dc94-27ff-4d1c-9d32-53fd06ebf98d" name="Changes" comment="" />
+    <list default="true" id="3b11dc94-27ff-4d1c-9d32-53fd06ebf98d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.OOP_Lab1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OOP_Lab1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_Lab1/GameAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_Lab1/GameAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_Lab1/bin/Debug/OOP_Lab1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_Lab1/bin/Debug/OOP_Lab1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_Lab1/bin/Debug/OOP_Lab1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_Lab1/bin/Debug/OOP_Lab1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_Lab1/obj/Debug/OOP_Lab1.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_Lab1/obj/Debug/OOP_Lab1.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_Lab1/obj/Debug/OOP_Lab1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_Lab1/obj/Debug/OOP_Lab1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_Lab1/obj/Debug/OOP_Lab1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_Lab1/obj/Debug/OOP_Lab1.pdb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,19 +28,20 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2G2BbOu2DrkcGMn23iMrEuPn95n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.8642384",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.8642384&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="OOP_Lab1" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -63,13 +72,26 @@
       <updated>1665576872004</updated>
       <workItem from="1665576875047" duration="11369000" />
       <workItem from="1665651723896" duration="19945000" />
+      <workItem from="1666077864379" duration="1827000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
