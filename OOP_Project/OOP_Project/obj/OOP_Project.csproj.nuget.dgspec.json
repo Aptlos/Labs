@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Артём\\RiderProjects\\OOP_Project\\OOP_Project\\OOP_Project.csproj": {}
+    "C:\\Programming\\GitTest\\Labs\\OOP_Project\\OOP_Project\\OOP_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Артём\\RiderProjects\\OOP_Project\\OOP_Project\\OOP_Project.csproj": {
+    "C:\\Programming\\GitTest\\Labs\\OOP_Project\\OOP_Project\\OOP_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Артём\\RiderProjects\\OOP_Project\\OOP_Project\\OOP_Project.csproj",
+        "projectUniqueName": "C:\\Programming\\GitTest\\Labs\\OOP_Project\\OOP_Project\\OOP_Project.csproj",
         "projectName": "OOP_Project",
-        "projectPath": "C:\\Users\\Артём\\RiderProjects\\OOP_Project\\OOP_Project\\OOP_Project.csproj",
+        "projectPath": "C:\\Programming\\GitTest\\Labs\\OOP_Project\\OOP_Project\\OOP_Project.csproj",
         "packagesPath": "C:\\Users\\Артём\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Артём\\RiderProjects\\OOP_Project\\OOP_Project\\obj\\",
+        "outputPath": "C:\\Programming\\GitTest\\Labs\\OOP_Project\\OOP_Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Артём\\AppData\\Roaming\\NuGet\\NuGet.Config"

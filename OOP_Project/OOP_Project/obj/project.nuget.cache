@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mID9PzhHBob38gd0VO7ii5TIYnv5sZPJxWCOAiWyXRHeUw6IlTabgGGOT5xbBauR83tAcZ7N+m4P8gKwmecBVg==",
+  "dgSpecHash": "w53NEr8gSK9yXtf0x7u93aCjws3MWezSEAeDZD2HQWLY1dgOokDXytwEra99gyzCoBEysqgFHQ5N+d23O+0gzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Артём\\RiderProjects\\OOP_Project\\OOP_Project\\OOP_Project.csproj",
+  "projectFilePath": "C:\\Programming\\GitTest\\Labs\\OOP_Project\\OOP_Project\\OOP_Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Артём\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.117\\stub.system.data.sqlite.core.netstandard.1.0.117.nupkg.sha512",
     "C:\\Users\\Артём\\.nuget\\packages\\system.data.sqlite.core\\1.0.117\\system.data.sqlite.core.1.0.117.nupkg.sha512"

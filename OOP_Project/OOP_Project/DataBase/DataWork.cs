@@ -113,7 +113,23 @@ namespace OOP_Project.DataBase
             reader.Close();
             ClearBasket();
         }
-        
-        
+
+        public static List<string> GetTypes()
+        { 
+            var Types = new List<string>(); 
+            string sqlExpression = "SELECT Name FROM Basket"; 
+            var command = new SQLiteCommand(sqlExpression, Connection); 
+            SQLiteDataReader reader = command.ExecuteReader(); 
+            if (reader.HasRows) 
+            {
+               while (reader.Read())
+               {
+                   string t = reader.GetString(0);
+                   Types.Add(t);
+               }
+           }
+            return Types;
+        }
+
     }
 }
