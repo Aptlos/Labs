@@ -117,7 +117,7 @@ namespace OOP_Project.DataBase
         public static List<string> GetTypes()
         { 
             var Types = new List<string>(); 
-            string sqlExpression = "SELECT Name FROM Basket"; 
+            string sqlExpression = "SELECT Name FROM Types"; 
             var command = new SQLiteCommand(sqlExpression, Connection); 
             SQLiteDataReader reader = command.ExecuteReader(); 
             if (reader.HasRows) 
@@ -131,5 +131,41 @@ namespace OOP_Project.DataBase
             return Types;
         }
 
+        public static List<string[]> GetProducts(int i)
+        {
+            var row = new string[2];
+            var Goods = new List<string[]>(); 
+            string sqlExpression = "SELECT Name,Cost FROM Goods WHERE Type =" + i; 
+            var command = new SQLiteCommand(sqlExpression, Connection); 
+            SQLiteDataReader reader = command.ExecuteReader(); 
+            if (reader.HasRows) 
+            {
+                while (reader.Read())
+                {
+                    row = new string[2];
+                    row[0] = reader.GetString(0);
+                    row[1] = reader.GetDouble(1).ToString();
+                    Goods.Add(row);
+                }
+            }
+            return Goods;
+        }
+        
+        public static List<string> GetAllProducts()
+        {
+            var Goods = new List<string>(); 
+            string sqlExpression = "SELECT Name FROM Goods"; 
+            var command = new SQLiteCommand(sqlExpression, Connection); 
+            SQLiteDataReader reader = command.ExecuteReader(); 
+            if (reader.HasRows) 
+            {
+                while (reader.Read())
+                {
+                    string prod = reader.GetString(0);
+                    Goods.Add(prod);
+                }
+            }
+            return Goods;
+        }
     }
 }
