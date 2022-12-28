@@ -21,12 +21,21 @@ namespace OOP_Project.UI
             {
                 int i = 1;
                 Products = new List<string[]>(DataWork.GetProducts(ind));
-                Console.WriteLine("Products of this type:");
-                Console.WriteLine(" 0.Return");
-                foreach (var prod in Products)
+                if (ind > ManageContorller.Types.Count || ind<0)
                 {
-                    Console.WriteLine("{0,2}.{1,3} Cost:{2,3}", i, prod[0], prod[1]);
-                    i++;
+                    Console.WriteLine("There is no such Type");
+                    Console.WriteLine(Message());
+                    Action();
+                }
+                else
+                {
+                    Console.WriteLine("Products of this type:");
+                    Console.WriteLine(" 0.Return");
+                    foreach (var prod in Products)
+                    {
+                        Console.WriteLine("{0,2}.{1,3} Cost:{2,3}", i, prod[0], prod[1]);
+                        i++;
+                    }
                 }
             }
             else

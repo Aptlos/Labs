@@ -17,8 +17,14 @@ namespace OOP_Project.UI
             int ind = int.Parse(Console.ReadLine());
             if (ind != 0)
             {
-                //var products = new List<string[]>(DataWork.GetProducts(ind));
-                DataWork.AddToBasket(ManageContorller.Goods.IndexOf(ProductsController.Products[ind-1][0])+1,1);
+                if (ind > ProductsController.Products.Count || ind < 0)
+                {
+                    Console.WriteLine("There is no such product");
+                    Console.WriteLine(Message());
+                    Action();
+                }
+                else
+                    DataWork.AddToBasket(ManageContorller.Goods.IndexOf(ProductsController.Products[ind-1][0])+1,1);
             }
             else
             {

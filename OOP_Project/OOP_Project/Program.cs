@@ -12,7 +12,6 @@ namespace OOP_Project
         {
             DataWork.RunDB();
             Basket = new List<int>();
-            var user = new Users("Artem",123);
             var controller = new ManageContorller();
             controller.Run();
         }

@@ -9,10 +9,14 @@ namespace OOP_Project.UI
         public List<IUserInterface> UIs { get; set; }
         public static List<string> Types { get; set; }
         public static List<string> Goods { get; set; }
+        public static Users User { get; set; }
         public ManageContorller()
         {
+            User = new Users("Artem",123,DataWork.GetIdUser("Artem"));
             UIs = new List<IUserInterface>();
             UIs.Add(new ShowAllTypesController());
+            UIs.Add(new ConfirmPurchaseController());
+            UIs.Add(new AddToBalanceController());
             Types  = new List<string>(DataWork.GetTypes());
             Goods = new List<string>(DataWork.GetAllProducts());
         }
@@ -34,8 +38,15 @@ namespace OOP_Project.UI
             Console.WriteLine("Select action: ");
             int action = int.Parse(Console.ReadLine());
             var exit = new ExitController();
-            if(action!=0)
-                UIs[action-1].Action();
+            if (action != 0)
+            {
+                if (action > UIs.Count || action<0)
+                {
+                    Console.WriteLine("There is now such function");
+                    Action();
+                }else
+                UIs[action - 1].Action();
+            }
             else exit.Action();
         }
         
