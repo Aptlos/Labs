@@ -40,12 +40,24 @@ namespace OOP_Project.DataBase
             command.ExecuteNonQuery();
         }
 
-        public static void RegUser(string username, int password)
+        public static int RegUser(string username, string password)
         {
+            int id = 0;
             double bal = 0;
             string sqlExpression = "INSERT INTO Users (Name, Pas,Bal) VALUES (" + "'" + username + "','" + password + "','" + bal + "')";
             var command = new SQLiteCommand(sqlExpression, Connection);
             command.ExecuteNonQuery();
+            sqlExpression = "SELECT MAX(Id) FROM Users";
+            command.CommandText = sqlExpression;
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = reader.GetInt32(0);
+                }
+            }
+            return id;
         }
 
         public static void AddBal(int id, double bal)
@@ -246,6 +258,23 @@ namespace OOP_Project.DataBase
             }
 
             return id;
+        }
+
+        public static string GetPasUser(int id)
+        {
+            string pas = "";
+            string sqlExpression = "SELECT Pas FROM Users WHERE Id=" + id;
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    pas = reader.GetString(0);
+                }
+            }
+
+            return pas;
         }
     }
 }

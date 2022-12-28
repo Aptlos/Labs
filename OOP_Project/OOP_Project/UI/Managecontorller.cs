@@ -7,16 +7,22 @@ namespace OOP_Project.UI
     public class ManageContorller
     {
         public List<IUserInterface> UIs { get; set; }
+        
+        //public List<IUserInterface> UILogins { get; set; }
         public static List<string> Types { get; set; }
         public static List<string> Goods { get; set; }
         public static Users User { get; set; }
+        public StartController StartUi;
         public ManageContorller()
         {
-            User = new Users("Artem",123,DataWork.GetIdUser("Artem"));
             UIs = new List<IUserInterface>();
+            /*UILogins = new List<IUserInterface>();
+            UIs.Add(new RegistrationController());
+            UIs.Add(new LogInController());*/
             UIs.Add(new ShowAllTypesController());
             UIs.Add(new ConfirmPurchaseController());
             UIs.Add(new AddToBalanceController());
+            StartUi = new StartController();
             Types  = new List<string>(DataWork.GetTypes());
             Goods = new List<string>(DataWork.GetAllProducts());
         }
@@ -25,10 +31,10 @@ namespace OOP_Project.UI
         {
             int i = 1;
             Console.WriteLine("Main menu:");
-            Console.WriteLine(" 0.Exit");
+            Console.WriteLine(" 0.Leave from account");
             foreach (var ui in UIs)
             {
-                Console.WriteLine("{0,2}.{1,13}",i,ui.Message());
+                Console.WriteLine("{0,2}.{1,3}",i,ui.Message());
                 i++;
             }
         }
@@ -44,8 +50,7 @@ namespace OOP_Project.UI
                 {
                     Console.WriteLine("There is now such function");
                     Action();
-                }else
-                UIs[action - 1].Action();
+                }else  UIs[action - 1].Action();
             }
             else exit.Action();
         }
@@ -56,12 +61,24 @@ namespace OOP_Project.UI
             {
                 try
                 {
+                    Console.WriteLine(StartUi.Message());
+                    StartUi.Action();
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
+            while (true)
+            {
+                try
+                {
                     Show();
                     Action();
                 }
                 catch (Exception)
                 {
-                    break;
+                    Run();
                 }
             }
         }
