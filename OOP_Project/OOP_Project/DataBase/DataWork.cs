@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Globalization;
+using System.Reflection.Metadata;
 
 namespace OOP_Project.DataBase
 {
@@ -40,12 +42,16 @@ namespace OOP_Project.DataBase
             command.ExecuteNonQuery();
         }
 
-        public static int RegUser(string username, string password)
+        public static int RegUser(string username, byte[] password)
         {
             int id = 0;
             double bal = 0;
-            string sqlExpression = "INSERT INTO Users (Name, Pas,Bal) VALUES (" + "'" + username + "','" + password + "','" + bal + "')";
+            string sqlExpression = "INSERT INTO Users (Name, Pas,Bal) VALUES (@par1,@par2,@par3)";
             var command = new SQLiteCommand(sqlExpression, Connection);
+            command.Parameters.Add("@par1", (DbType)SqlDbType.VarChar).Value=username;
+            command.Parameters.Add("@par2",(DbType)SqlDbType.Binary).Value=password;
+            command.Parameters.Add("@par3", (DbType)SqlDbType.Int).Value=bal;
+            command.Prepare();
             command.ExecuteNonQuery();
             sqlExpression = "SELECT MAX(Id) FROM Users";
             command.CommandText = sqlExpression;
@@ -260,17 +266,19 @@ namespace OOP_Project.DataBase
             return id;
         }
 
-        public static string GetPasUser(int id)
+        public static byte[] GetPasUser(int id)
         {
-            string pas = "";
-            string sqlExpression = "SELECT Pas FROM Users WHERE Id=" + id;
+            byte[] pas=null;
+            string sqlExpression = "SELECT \"rowid\",Pas FROM Users WHERE Id=" + id;
             var command = new SQLiteCommand(sqlExpression, Connection);
-            SQLiteDataReader reader = command.ExecuteReader();
+            SQLiteDataReader reader = command.ExecuteReader(CommandBehavior.KeyInfo);
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    pas = reader.GetString(0);
+                    var blob = reader.GetBlob(1,readOnly:true);
+                    pas = new byte[blob.GetCount()];
+                    reader.GetBytes(1,0,pas,0,blob.GetCount());
                 }
             }
 

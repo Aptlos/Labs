@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 using OOP_Project.DataBase;
 
 namespace OOP_Project.UI
@@ -50,13 +52,31 @@ namespace OOP_Project.UI
                     Console.WriteLine("Password can't have gaps");
                     continue;
                 }
-
-                if (DataWork.GetPasUser(id).Equals(pas))
+                byte[] pasSource;
+                byte[] pasHash;
+                pasSource = ASCIIEncoding.ASCII.GetBytes(pas);
+                pasHash = new MD5CryptoServiceProvider().ComputeHash(pasSource);
+                byte[] pasUser = DataWork.GetPasUser(id);
+                bool bEqual = false;
+                if (pasUser.Length!=0)
                 {
-                    ManageContorller.User = new Users(login, pas, id);
+                    int i=0;
+                    while ((i < pasUser.Length) && (pasUser[i] == pasHash[i]))
+                    {
+                        i += 1;
+                    }
+                    if (i == pasUser.Length)
+                    {
+                        bEqual = true;
+                    }
+                }
+                if (bEqual)
+                {
+                    ManageContorller.User = new Users(login, pasHash, id);
                     exit.Action();
                     break;
                 }
+                
                 Console.WriteLine("Password is wrong");
             }
         }

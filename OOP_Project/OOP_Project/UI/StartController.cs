@@ -28,12 +28,19 @@ namespace OOP_Project.UI
                 Console.WriteLine("{0,2}.{1,3}",i,ui.Message());
                 i++;
             }
+            Console.WriteLine("Choose action:");
             int action = int.Parse(Console.ReadLine());
             if (action != 0)
             {
+                if (action > UILogins.Count || action < 0)
+                {
+                    Console.WriteLine("There is no such function");
+                    Action();
+                }
                 UILogins[action-1].Action();
             }
-            else exit.Action();
+            Environment.Exit(0);
+            
         }
     }
 }

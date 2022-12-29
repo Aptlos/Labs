@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography;
+using System.Text;
 using OOP_Project.DataBase;
 
 namespace OOP_Project.UI
@@ -15,7 +17,7 @@ namespace OOP_Project.UI
             var exit = new ExitController();
             while (true)
             {
-                Console.WriteLine("Enter login:");
+                Console.WriteLine("Enter login:"); //Сделать проверку на то, есть ли уже такой юзер
                 string login = Console.ReadLine();
                 if (login.Equals(""))
                 {
@@ -26,6 +28,12 @@ namespace OOP_Project.UI
                 if (login.Contains(" ")) 
                 {
                     Console.WriteLine("Login can't have gaps");
+                    continue;
+                }
+
+                if (DataWork.GetIdUser(login)!=0)
+                {
+                    Console.WriteLine("There is user with such login");
                     continue;
                 }
                     
@@ -41,7 +49,12 @@ namespace OOP_Project.UI
                     Console.WriteLine("Password can't have gaps");
                     continue;
                 }
-                ManageContorller.User = new Users(login, pas, DataWork.RegUser(login, pas));
+
+                byte[] pasSource;
+                byte[] pasHash;
+                pasSource = ASCIIEncoding.ASCII.GetBytes(pas);
+                pasHash = new MD5CryptoServiceProvider().ComputeHash(pasSource);
+                ManageContorller.User = new Users(login, pasHash, DataWork.RegUser(login, pasHash));
                 exit.Action();
                 break;
             }
