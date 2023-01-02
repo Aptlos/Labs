@@ -14,7 +14,14 @@ namespace OOP_Project.UI
         public void Action()
         {
             var exit = new ExitController();
-            int ind = int.Parse(Console.ReadLine());
+            string act = Console.ReadLine();
+            int ind;
+            if (!int.TryParse(act, out ind))
+            {
+                Console.WriteLine("This is not a number");
+                Console.WriteLine("Choose a product:");
+                Action();
+            }
             if (ind != 0)
             {
                 if (ind > ProductsController.Products.Count || ind < 0)
@@ -38,7 +45,6 @@ namespace OOP_Project.UI
                 }
                 exit.Action();
             }
-            
         }
     }
 }

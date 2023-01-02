@@ -42,17 +42,27 @@ namespace OOP_Project.UI
         private void Action()
         {
             Console.WriteLine("Select action: ");
-            int action = int.Parse(Console.ReadLine());
+            string act = Console.ReadLine();
+            int action;
+            if (!int.TryParse(act, out action))
+            {
+                Console.WriteLine("This is not a number");
+                Action();
+            }
             var exit = new ExitController();
             if (action != 0)
             {
                 if (action > UIs.Count || action<0)
                 {
-                    Console.WriteLine("There is now such function");
+                    Console.WriteLine("There is no such function");
                     Action();
                 }else  UIs[action - 1].Action();
             }
-            else exit.Action();
+            else
+            {
+                DataWork.ClearBasket();
+                exit.Action();
+            }
         }
         
         public void Run()

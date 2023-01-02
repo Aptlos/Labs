@@ -16,7 +16,14 @@ namespace OOP_Project.UI
         public void Action()
         {
             var exit = new ExitController();
-            int ind = int.Parse(Console.ReadLine());
+            string act = Console.ReadLine();
+            int ind;
+            if (!int.TryParse(act, out ind))
+            {
+                Console.WriteLine("This is not a number");
+                Console.WriteLine("Select a type:");
+                Action();
+            }
             if (ind != 0)
             {
                 int i = 1;

@@ -13,7 +13,14 @@ namespace OOP_Project.UI
         public void Action()
         {
             Console.WriteLine("Input amount of money:");
-            double bal = double.Parse(Console.ReadLine());
+            string act = Console.ReadLine();
+            double bal;
+            if (!double.TryParse(act, out bal))
+            {
+                Console.WriteLine("This is not a number");
+                Action();
+            }
+            //double bal = double.Parse(Console.ReadLine());
             DataWork.AddBal(ManageContorller.User.Id,bal);
         }
     }

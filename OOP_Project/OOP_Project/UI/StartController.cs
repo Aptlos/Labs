@@ -29,7 +29,15 @@ namespace OOP_Project.UI
                 i++;
             }
             Console.WriteLine("Choose action:");
-            int action = int.Parse(Console.ReadLine());
+            
+            string act = Console.ReadLine();
+            int action;
+            if (!int.TryParse(act, out action))
+            {
+                Console.WriteLine("This is not a number");
+                Action();
+            }
+            
             if (action != 0)
             {
                 if (action > UILogins.Count || action < 0)
