@@ -22,6 +22,7 @@ namespace OOP_Project.UI
             UIs.Add(new ShowAllTypesController());
             UIs.Add(new BasketController());
             UIs.Add(new ConfirmPurchaseController());
+            UIs.Add(new AllPurchController());
             UIs.Add(new ShowBalController());
             UIs.Add(new AddToBalanceController());
             StartUi = new StartController();

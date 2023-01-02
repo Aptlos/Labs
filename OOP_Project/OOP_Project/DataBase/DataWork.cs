@@ -35,13 +35,6 @@ namespace OOP_Project.DataBase
             Connection.Close();
         }
 
-        public static void ClearBasket()
-        {
-            string sqlExpression = "DELETE FROM Basket";
-            var command = new SQLiteCommand(sqlExpression, Connection);
-            command.ExecuteNonQuery();
-        }
-
         public static int RegUser(string username, byte[] password)
         {
             int id = 0;
@@ -65,6 +58,41 @@ namespace OOP_Project.DataBase
             }
 
             return id;
+        }
+        public static int GetIdUser(string name)
+        {
+            int id = 0;
+            string sqlExpression = "SELECT Id FROM Users WHERE Name=" + "'" + name + "'";
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = reader.GetInt32(0);
+                }
+            }
+
+            return id;
+        }
+
+        public static byte[] GetPasUser(int id)
+        {
+            byte[] pas = null;
+            string sqlExpression = "SELECT \"rowid\",Pas FROM Users WHERE Id=" + id;
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader(CommandBehavior.KeyInfo);
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    var blob = reader.GetBlob(1, readOnly: true);
+                    pas = new byte[blob.GetCount()];
+                    reader.GetBytes(1, 0, pas, 0, blob.GetCount());
+                }
+            }
+
+            return pas;
         }
 
         public static void AddBal(int id, double bal)
@@ -191,6 +219,12 @@ namespace OOP_Project.DataBase
 
             return result;
         }
+        public static void ClearBasket()
+        {
+            string sqlExpression = "DELETE FROM Basket";
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            command.ExecuteNonQuery();
+        }
 
 
         public static void ConfirmPurchase(int us)
@@ -274,6 +308,44 @@ namespace OOP_Project.DataBase
             ClearBasket();
         }
 
+        public static void ShowAllPurch(int id)
+        {
+            string sqlExpression = "SELECT Id,Date,Cost FROM Purch WHERE User=" + id;
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                Console.WriteLine("-----------------------------------------------------------------");
+                while (reader.Read())
+                {
+                    int i = reader.GetInt32(0);
+                    string date = reader.GetString(1);
+                    double cost = reader.GetDouble(2);
+                    Console.WriteLine("Purchase with id({0,1}) at {1,1}. Total cost: {2,1}", i, date, cost);
+                    string sqlExpression1 = "SELECT G.Name,G.Cost FROM Purch_list P" +
+                                            " INNER JOIN Goods G ON P.Name=G.Id "+
+                                            "WHERE P.Id=" + i;
+                    var command1 = new SQLiteCommand(sqlExpression1, Connection);
+                    SQLiteDataReader reader1 = command1.ExecuteReader();
+                    if (reader1.HasRows)
+                    {
+                        while (reader1.Read())
+                        {
+                            string name = reader1.GetString(0);
+                            double bal = reader1.GetDouble(1);
+                            Console.WriteLine("  {0,1} : {1,1}",name,bal);
+                            
+                        }
+                    }
+                    reader1.Close();
+                    command1.Cancel();
+                    Console.WriteLine("-----------------------------------------------------------------");
+                }
+            }else Console.WriteLine("You don't have purchases");
+            reader.Close();
+            command.Cancel();
+        }
+
         public static List<string> GetTypes()
         {
             var Types = new List<string>();
@@ -330,42 +402,7 @@ namespace OOP_Project.DataBase
 
             return Goods;
         }
-
-        public static int GetIdUser(string name)
-        {
-            int id = 0;
-            string sqlExpression = "SELECT Id FROM Users WHERE Name=" + "'" + name + "'";
-            var command = new SQLiteCommand(sqlExpression, Connection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    id = reader.GetInt32(0);
-                }
-            }
-
-            return id;
-        }
-
-        public static byte[] GetPasUser(int id)
-        {
-            byte[] pas = null;
-            string sqlExpression = "SELECT \"rowid\",Pas FROM Users WHERE Id=" + id;
-            var command = new SQLiteCommand(sqlExpression, Connection);
-            SQLiteDataReader reader = command.ExecuteReader(CommandBehavior.KeyInfo);
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    var blob = reader.GetBlob(1, readOnly: true);
-                    pas = new byte[blob.GetCount()];
-                    reader.GetBytes(1, 0, pas, 0, blob.GetCount());
-                }
-            }
-
-            return pas;
-        }
+        
     }
 }
 
