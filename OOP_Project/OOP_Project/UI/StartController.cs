@@ -22,13 +22,17 @@ namespace OOP_Project.UI
         {
             int i = 1;
             var exit = new ExitController();
-            Console.WriteLine(" 0.Exit");
+            
             foreach (var ui in UILogins)
             {
                 Console.WriteLine("{0,2}.{1,3}",i,ui.Message());
                 i++;
             }
+
+            Console.WriteLine(" --------------");
+            Console.WriteLine(" 0.Exit");
             Console.WriteLine("Choose action:");
+            
             
             string act = Console.ReadLine();
             int action;

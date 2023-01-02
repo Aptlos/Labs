@@ -21,7 +21,7 @@ namespace OOP_Project.UI
             if (!int.TryParse(act, out ind))
             {
                 Console.WriteLine("This is not a number");
-                Console.WriteLine("Select a type:");
+                Console.WriteLine(Message());
                 Action();
             }
             if (ind != 0)
@@ -37,12 +37,14 @@ namespace OOP_Project.UI
                 else
                 {
                     Console.WriteLine("Products of this type:");
-                    Console.WriteLine(" 0.Return");
                     foreach (var prod in Products)
                     {
                         Console.WriteLine("{0,2}.{1,3} Cost:{2,3}", i, prod[0], prod[1]);
                         i++;
                     }
+
+                    Console.WriteLine(" ------------------");
+                    Console.WriteLine(" 0.Return");
                 }
             }
             else

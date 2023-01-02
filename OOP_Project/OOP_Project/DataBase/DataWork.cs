@@ -129,30 +129,60 @@ namespace OOP_Project.DataBase
             }
         }
 
-        public static void AddToBasket(int pr, int id)
+        public static void AddToBasket(int pr)
         {
+            
+            int id = CountBasket()+1;
             string sqlExpression = "INSERT INTO Basket(Id,Name) VALUES ('" + id + "','" + pr + "')";
             var command = new SQLiteCommand(sqlExpression, Connection);
             command.ExecuteNonQuery();
         }
 
+        public static void DelFromBasket(int id)
+        {
+            string sqlExpression = "DELETE FROM Basket WHERE Id=" + id;
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            command.ExecuteNonQuery();
+        }
+
+        public static int CountBasket()
+        {
+            int count = 0;
+            string sqlExpression = "SELECT MAX(Id) FROM Basket";
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            object c=DBNull.Value;
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    c = reader.GetValue(0);
+                    if (c != DBNull.Value)
+                    {
+                        count = Convert.ToInt32(c); 
+                    }
+                }
+            }
+
+            return count;
+        }
+
         public static bool SeeBasket()
         {
             bool result = false;
-            string sqlExpression = "SELECT G.Name,G.Cost FROM Basket B " +
+            string sqlExpression = "SELECT G.Name,G.Cost,B.Id FROM Basket B " +
                                    "INNER JOIN Goods G ON B.Name=G.Id";
             var command = new SQLiteCommand(sqlExpression, Connection);
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 Console.WriteLine("Your basket:");
-                int i = 1;
                 while (reader.Read())
                 {
                     string name = reader.GetString(0);
                     double cost = reader.GetDouble(1);
-                    Console.WriteLine(" {0,1}.{1,1} : {2,1}", i, name, cost);
-                    i++;
+                    int id = reader.GetInt32(2);
+                    Console.WriteLine(" {0,1}.{1,1} : {2,1}", id, name, cost);
                 }
 
                 result = true;

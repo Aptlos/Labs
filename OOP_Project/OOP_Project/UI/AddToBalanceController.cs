@@ -22,6 +22,7 @@ namespace OOP_Project.UI
             }
             //double bal = double.Parse(Console.ReadLine());
             DataWork.AddBal(ManageContorller.User.Id,bal);
+            DataWork.GetBal(ManageContorller.User.Id);
         }
     }
 }

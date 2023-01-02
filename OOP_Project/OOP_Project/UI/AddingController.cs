@@ -31,18 +31,20 @@ namespace OOP_Project.UI
                     Action();
                 }
                 else
-                    DataWork.AddToBasket(ManageContorller.Goods.IndexOf(ProductsController.Products[ind-1][0])+1,1);
+                    DataWork.AddToBasket(ManageContorller.Goods.IndexOf(ProductsController.Products[ind-1][0])+1);
             }
             else
             {
                 Console.WriteLine("Types of products:");
-                Console.WriteLine(" 0.Return");
                 int i = 1;
                 foreach (var type in ManageContorller.Types)
                 {
                     Console.WriteLine("{0,2}.{1,4}",i,type);
                     i++;
                 }
+
+                Console.WriteLine(" -------------------");
+                Console.WriteLine(" 0.Return");
                 exit.Action();
             }
         }

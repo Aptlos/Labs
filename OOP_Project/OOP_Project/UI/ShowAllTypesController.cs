@@ -11,13 +11,15 @@ namespace OOP_Project.UI
         {
             Console.WriteLine("Types of products:");
             int i = 1;
-            Console.WriteLine(" 0.Return");
+            
             foreach (var type in ManageContorller.Types)
             {
                 Console.WriteLine("{0,2}.{1,4}",i,type);
                 i++;
             }
 
+            Console.WriteLine(" -------------------");
+            Console.WriteLine(" 0.Return");
             var control = new ProductsController();
             while (true)
             {

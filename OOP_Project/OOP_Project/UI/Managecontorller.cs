@@ -20,7 +20,9 @@ namespace OOP_Project.UI
             UIs.Add(new RegistrationController());
             UIs.Add(new LogInController());*/
             UIs.Add(new ShowAllTypesController());
+            UIs.Add(new BasketController());
             UIs.Add(new ConfirmPurchaseController());
+            UIs.Add(new ShowBalController());
             UIs.Add(new AddToBalanceController());
             StartUi = new StartController();
             Types  = new List<string>(DataWork.GetTypes());
@@ -31,12 +33,13 @@ namespace OOP_Project.UI
         {
             int i = 1;
             Console.WriteLine("Main menu:");
-            Console.WriteLine(" 0.Leave from account");
             foreach (var ui in UIs)
             {
                 Console.WriteLine("{0,2}.{1,3}",i,ui.Message());
                 i++;
             }
+            Console.WriteLine(" --------------------------");
+            Console.WriteLine(" 0.Leave from account");
         }
 
         private void Action()
