@@ -20,6 +20,12 @@ namespace OOP_Project.UI
                 Console.WriteLine("This is not a number");
                 Action();
             }
+
+            if (bal < 0)
+            {
+                Console.WriteLine("You can't add amount of money <0");
+                Action();
+            }
             //double bal = double.Parse(Console.ReadLine());
             DataWork.AddBal(ManageContorller.User.Id,bal);
             DataWork.GetBal(ManageContorller.User.Id);
