@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using OOP_Project.DataBase;
 
 namespace OOP_Project.UI
 {
     public class StartController : IUserInterface
     {
-        public List<IUserInterface> UILogins { get; set; }
+        private List<IUserInterface> UILogins { get; set; }
 
         public StartController()
         {
@@ -51,6 +52,7 @@ namespace OOP_Project.UI
                 }
                 UILogins[action-1].Action();
             }
+            DataWork.StopDB();
             Environment.Exit(0);
             
         }

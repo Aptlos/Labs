@@ -6,19 +6,17 @@ namespace OOP_Project.UI
 {
     public class ManageContorller
     {
-        public List<IUserInterface> UIs { get; set; }
+        private List<IUserInterface> UIs { get; set; }
         
         //public List<IUserInterface> UILogins { get; set; }
         public static List<string> Types { get; set; }
         public static List<string> Goods { get; set; }
         public static Users User { get; set; }
+        
         public StartController StartUi;
         public ManageContorller()
         {
             UIs = new List<IUserInterface>();
-            /*UILogins = new List<IUserInterface>();
-            UIs.Add(new RegistrationController());
-            UIs.Add(new LogInController());*/
             UIs.Add(new ShowAllTypesController());
             UIs.Add(new BasketController());
             UIs.Add(new ConfirmPurchaseController());
